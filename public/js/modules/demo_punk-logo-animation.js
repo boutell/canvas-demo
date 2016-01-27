@@ -11,6 +11,8 @@ function logoAnimation() {
   // Init canvas
   self.initCanvas();
 
+  var lastTick;
+
   // Draw Loop
   (function drawFrame () {
 			self.utils.getAnimationFrame();                          // X-Browser support for requrestAnimationFrame method
@@ -32,6 +34,10 @@ function logoAnimation() {
       var redB   = Math.sin(redFreq*tick/2 + 0) * 127 + 128,
           greenB = Math.sin(greenFreq*tick/2 + 4) * 127 + 128,
           blueB  = Math.sin(blueFreq*tick/2 + 8) * 127 + 128;
+
+      self.ctx.rotate(tick - lastTick);
+
+      lastTick = tick;
 
       // Draw the logo with our two new colors
       self.draw(self.RGB2Color(redA, greenA, blueA), self.RGB2Color(redB, greenB, blueB));

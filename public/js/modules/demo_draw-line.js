@@ -21,7 +21,6 @@ $(function(){
 
   // * EXAMPLE * (my initials)
 
-  // 'M'
   ctx.beginPath()
   ctx.moveTo(2, 1);
   ctx.lineTo(36, 1);
@@ -29,7 +28,6 @@ $(function(){
   ctx.lineTo(19, 41);
   ctx.stroke();
 
-  // 'B'
   ctx.beginPath();
   ctx.moveTo(40, 1);
   ctx.quadraticCurveTo(78, 11, 40, 21);
