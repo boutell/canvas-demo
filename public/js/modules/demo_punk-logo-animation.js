@@ -15,6 +15,8 @@ function logoAnimation() {
 
   // Draw Loop
   (function drawFrame () {
+
+      self.ctx.save();
 			self.utils.getAnimationFrame();                          // X-Browser support for requrestAnimationFrame method
 			window.requestAnimationFrame(drawFrame, canvas);         // Request Animation Frame tells the browser that we are ready to paint a new frame
 			self.ctx.clearRect(0, 0, canvas.width, canvas.height);   // Clear the canvas so we can render the next frame
@@ -33,14 +35,20 @@ function logoAnimation() {
       // RGB for Inner Color
       var redB   = Math.sin(redFreq*tick/2 + 0) * 127 + 128,
           greenB = Math.sin(greenFreq*tick/2 + 4) * 127 + 128,
+
           blueB  = Math.sin(blueFreq*tick/2 + 8) * 127 + 128;
 
-      self.ctx.rotate(tick - lastTick);
+
+      self.ctx.translate(150, 150);
+      self.ctx.rotate(tick / 8);
+      self.ctx.translate(-150, -150);
 
       lastTick = tick;
 
       // Draw the logo with our two new colors
       self.draw(self.RGB2Color(redA, greenA, blueA), self.RGB2Color(redB, greenB, blueB));
+
+      self.ctx.restore();
 	}());
 };
 
@@ -71,6 +79,7 @@ logoAnimation.prototype.draw = function(colorBg, colorStroke) {
   var self = this;
 
   // Base Circle
+  self.ctx.save();
   self.ctx.beginPath();
   self.ctx.arc(self.centerX, self.centerY, self.radius, 0, 2 * Math.PI, false);
   self.ctx.fillStyle = colorBg || '#333';
