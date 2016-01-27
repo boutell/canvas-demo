@@ -40,7 +40,7 @@ function logoAnimation() {
 
 
       self.ctx.translate(150, 150);
-      self.ctx.rotate(tick / 8);
+      self.ctx.rotate(0.01);
       self.ctx.translate(-150, -150);
 
       lastTick = tick;
