@@ -23,19 +23,18 @@ $(function(){
 
   // 'M'
   ctx.beginPath()
-  ctx.moveTo(2, 40);
-  ctx.lineTo(2, 1);
-  ctx.lineTo(20, 32);
+  ctx.moveTo(2, 1);
   ctx.lineTo(36, 1);
-  ctx.lineTo(36, 40);
+  ctx.moveTo(19, 1);
+  ctx.lineTo(19, 41);
   ctx.stroke();
 
-  // 'C'
+  // 'B'
   ctx.beginPath();
-  ctx.moveTo(72, 1);
-  ctx.lineTo(44, 1);
-  ctx.lineTo(44, 40);
-  ctx.lineTo(72, 40);
+  ctx.moveTo(40, 1);
+  ctx.quadraticCurveTo(78, 11, 40, 21);
+  ctx.quadraticCurveTo(78, 31, 40, 41);
+  ctx.lineTo(40, 1);
   ctx.stroke();
 
 });
